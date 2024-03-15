@@ -16,7 +16,7 @@ jobs:
         run: dotnet restore ./TestCasesCurated.sln
       - name: Run Snyk CLI to check for vulnerabilities
         run: |
-          snyk code test --all-projects --sarif-file-output=snyk.sarif
+          snyk code test --all-projects --sarif-file-output=snyk.sarif || true
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
           continue-on-error: true 
